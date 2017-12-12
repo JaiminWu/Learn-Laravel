@@ -40,6 +40,7 @@ class ImageUploadHandler
             $this->reduceSize($upload_path . '/' . $filename, $max_width);
         }
 
+        //此处有个设计挺巧妙的地方，返回值是个数组，但里面只有path一个值，这么返回能极大提高代码可读性。
         return [
             'path' => config('app.url') . "/$folder_name/$filename"
         ];

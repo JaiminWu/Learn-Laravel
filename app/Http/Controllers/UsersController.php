@@ -32,6 +32,7 @@ class UsersController extends Controller
         $data = $request->all();
         if ($request->avatar) {
             $result = $uploader->save($request->avatar, 'avatars', $user->id, 362);
+            //此处有个设计挺巧妙的地方，$result是个数组，但里面只有path一个值，这么返回能极大提高代码可读性。
             if ($result) {
                 $data['avatar'] = $result['path'];
             }
